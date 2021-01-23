@@ -10,7 +10,7 @@ func main() {
 
 	var err error
 
-	files, err := ioutil.ReadDir(".")						//liste tout les fichiers du répertoire courant 
+	files, err := ioutil.ReadDir(".")							//liste tout les fichiers du répertoire courant 
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -18,10 +18,10 @@ func main() {
 	pdf := gopdf.GoPdf{}									//Création d'un fichier pdf
 	pdf.Start(gopdf.Config{PageSize: *gopdf.PageSizeA4 }) 
 
-	for _, f := range files {								// parcourt les fichiers du répertoire courant et les mettre 
+	for _, f := range files {								// parcourt les fichiers du répertoire courant
 		if f.Name() != "main.go" {	
 																
-			pdf.AddPage()									// insertions des images dans chaque page pdf 
+			pdf.AddPage()								// insertion des images dans chaque page pdf 
 			pdf.Image(f.Name(), 0, 50, nil) 				
 		}
 	}
